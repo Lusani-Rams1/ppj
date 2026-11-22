@@ -1,4 +1,23 @@
 
+const firstRow = [
+    { name: "HTML5", icon: "html5" },
+    { name: "CSS3", icon: "css3" },
+    { name: "JavaScript", icon: "javascript" },
+    { name: "Node.js", icon: "nodejs" },
+    { name: "Express.js", icon: "express" },
+    { name: "MySQL", icon: "mysql" }
+];
+
+const secondRow = [
+    { name: "Git", icon: "git" },
+    { name: "GitHub", icon: "github" },
+    { name: "PHP", icon: "php" },
+    { name: "C#", icon: "csharp" },
+    { name: "Bootstrap", icon: "bootstrap" },
+    { name: "MariaDB", icon: "mariadb" }
+];
+
+
 function createMarquee(rowId, technologies) {
     const track = document.getElementById(rowId);
 
