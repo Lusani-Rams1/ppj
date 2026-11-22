@@ -1,0 +1,69 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navigation container */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #141414;
+    border: 1px solid #303030;
+    border-radius: 9999px;
+
+    padding: 12px 25px;
+    margin: 10px auto;
+    width: 95%;
+
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+}
+
+/* Individual links */
+.nav-links a {
+    color: #A5A5A5;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover,
+.nav-links a.active {
+    color: #20BFE3;
+}
+
+/* Contact button */
+.contact-btn {
+    background-color: white;
+    color: #111111;
+    padding: 14px 30px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #20BFE3;
+    color: #111111;
+}
