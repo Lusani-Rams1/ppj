@@ -1,48 +1,61 @@
 
-const firstRow = [
-    { name: "HTML5", icon: "html5" },
-    { name: "CSS3", icon: "css3" },
-    { name: "JavaScript", icon: "javascript" },
-    { name: "Node.js", icon: "nodejs" },
-    { name: "Express.js", icon: "express" },
-    { name: "MySQL", icon: "mysql" }
-];
+document.addEventListener("DOMContentLoaded", () => {
 
-const secondRow = [
-    { name: "Git", icon: "git" },
-    { name: "GitHub", icon: "github" },
-    { name: "PHP", icon: "php" },
-    { name: "C#", icon: "csharp" },
-    { name: "Bootstrap", icon: "bootstrap" },
-    { name: "MariaDB", icon: "mariadb" }
-];
+    // FIRST ROW - MOVES LEFT
+    const firstRow = [
+        { name: "HTML5", icon: "html5" },
+        { name: "CSS3", icon: "css3" },
+        { name: "JavaScript", icon: "javascript" },
+        { name: "Node.js", icon: "nodejs" },
+        { name: "Express.js", icon: "express" },
+        { name: "MySQL", icon: "mysql" }
+    ];
 
+    // SECOND ROW - MOVES RIGHT
+    const secondRow = [
+        { name: "Git", icon: "git" },
+        { name: "GitHub", icon: "github" },
+        { name: "PHP", icon: "php" },
+        { name: "C#", icon: "csharp" },
+        { name: "Bootstrap", icon: "bootstrap" },
+        { name: "MariaDB", icon: "mariadb" }
+    ];
 
-function createMarquee(rowId, technologies) {
-    const track = document.getElementById(rowId);
+    // GENERATE TECHNOLOGY CARDS
+    function createMarquee(rowId, technologies) {
 
-    if (!track || !technologies.length) return;
+        const track = document.getElementById(rowId);
 
-    const cards = technologies.map(tech => `
-        <div class="tech-card">
-            <i class="devicon-${tech.icon}-plain"
-               aria-hidden="true"></i>
-            <span>${tech.name}</span>
-        </div>
-    `).join("");
+        if (!track || technologies.length === 0) {
+            return;
+        }
 
-    const group = `
-        <div class="marquee-group">
-            ${cards}
-        </div>
-    `;
+        const cards = technologies.map(tech => `
+            <div class="tech-card">
+                <i class="devicon-${tech.icon}-plain"
+                   aria-hidden="true"></i>
+                <span>${tech.name}</span>
+            </div>
+        `).join("");
 
-    // Two identical groups create a seamless loop.
-    track.innerHTML = group + group;
+        // Create two identical groups
+        const group = `
+            <div class="marquee-group">
+                ${cards}
+            </div>
+        `;
 
-    // The second group is decorative duplication.
-    track.children[1].setAttribute("aria-hidden", "true");
-}
+        track.innerHTML = group + group;
 
-createMarquee("row-one", firstRow);
-createMarquee("row-two", secondRow);
+        // Hide duplicate group from screen readers
+        track.children[1].setAttribute(
+            "aria-hidden",
+            "true"
+        );
+    }
+
+    // INITIALISE MARQUEES
+    createMarquee("row-one", firstRow);
+    createMarquee("row-two", secondRow);
+
+});
