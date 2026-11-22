@@ -8,6 +8,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="home.css">
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        >
+
     </head>
     <body>
                 
@@ -30,20 +36,62 @@
 
     </nav>
 
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <div class="availability">
+            <span class="status-dot"></span>
+            Available for new projects
+        </div>
 
-        <div>
-            <p>
-                lusani
+            <h1>
+                Hi, I'm Lusani <br>
+                <span class="gradient-text">Lusani</span>
+            </h1>
+            <p class="hero-description">
+                A <strong>Web Developer</strong> based in
+                South Africa. I build modern, responsive
+                and user-friendly websites using
+                modern web technologies.
             </p>
-            <button>contact me</button>
-            <button>download cv</button>
 
-            <img src="#" alt="lusani's photo">
+            <div class="hero-buttons">
+                <a href="#contact" class="primary-btn">
+                    Contact Me <span>→</span>
+                </a>
+
+                <a href="assets/Lusani-CV.pdf"
+                class="secondary-btn"
+                download>
+                    Download CV ↓
+                </a>
+            </div>
+
         </div>
 
-        <div>
-            <p>tech langs</p>
+        <div class="hero-image-container">
+            <div class="hero-image">
+                <img src="assets/profile.png"
+                    alt="Lusani portrait">
+            </div>
         </div>
+    </section>
+   
+    <section class="tech-section" id="skills">
+
+        <div class="tech-heading">
+            <h2>Technological Foundation</h2>
+            <p>The modern tools I use to bring products to life.</p>
+        </div>
+
+        <div class="marquee">
+            <div class="marquee-track" id="row-one"></div>
+        </div>
+
+        <div class="marquee reverse">
+            <div class="marquee-track" id="row-two"></div>
+        </div>
+
+    </section>
 
         <h1>beyond coding</h1>
 
@@ -165,6 +213,6 @@
             <img src="#" link="#" alt="email">
         </footer>
         
-        <script src="" async defer></script>
+        <script src="JS/script.js" async defer></script>
     </body>
 </html>
