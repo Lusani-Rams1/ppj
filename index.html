@@ -1,203 +1,377 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="home.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-        >
+    <title>Lusani Digital | Web Developer</title>
 
-    </head>
-    <body>
-                
-    <nav class="navbar">
+    <meta name="description"
+        content="Lusani Digital provides modern web development, responsive website design and backend development services in South Africa.">
 
-        <div class="logo">
-            <img src="#logo" alt="Lusani Digital Logo" width="45">
-        </div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-        </ul>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        <a href="#contact" class="contact-btn">
-            Contact Me
-        </a>
+    <!-- Devicon -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-    </nav>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="home.css">
 
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <div class="availability">
-            <span class="status-dot"></span>
-            Available for new projects
-        </div>
+    <!-- JavaScript -->
+    <script src="JS/script.js" defer></script>
 
-            <h1>
-                Hi, I'm Lusani <br>
-                <span class="gradient-text">Lusani</span>
-            </h1>
-            <p class="hero-description">
-                A <strong>Web Developer</strong> based in
-                South Africa. I build modern, responsive
-                and user-friendly websites using
-                modern web technologies.
-            </p>
+</head>
 
-            <div class="hero-buttons">
-                <a href="#contact" class="primary-btn">
-                    Contact Me <span>→</span>
-                </a>
+<body>
 
-                <a href="assets/Lusani-CV.pdf"
-                class="secondary-btn"
-                download>
-                    Download CV ↓
-                </a>
+    <!-- NAVIGATION -->
+    <header class="header">
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="#home" class="logo" aria-label="Lusani Digital Home">
+                LD<span>.</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li><a href="#home" class="active">Home</a></li>
+                <li></li><a href="#skills">Technologies</a></li>
+                <li><a href="#services">Services</a></li>
+
+            </ul>
+
+            <a href="#contact" class="contact-btn">
+                Contact Me
+            </a>
+
+            <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-controls="navLinks"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="availability">
+
+                    <span class="status-dot"></span>
+
+                    Available for new projects
+
+                </div>
+
+                <h1>
+                    Hi, I'm <br>
+                    <span class="gradient-text">Lusani.</span>
+                </h1>
+
+                <p class="hero-description">
+
+                    A <strong>Web Developer</strong> and founder
+                    of <strong>Lusani Digital</strong>, based in
+                    South Africa.
+
+                    I build modern, responsive and user-friendly
+                    websites that bring digital ideas to life.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#contact" class="primary-btn">
+
+                        Contact Me
+                        <span>→</span>
+
+                    </a>
+
+                    <a href="assets/Lusani-CV.pdf"
+                        class="secondary-btn"
+                        download>
+
+                        Download CV ↓
+
+                    </a>
+
+                </div>
+
             </div>
 
-        </div>
+            <div class="hero-image-container">
 
-        <div class="hero-image-container">
-            <div class="hero-image">
-                <img src="assets/profile.png"
-                    alt="Lusani portrait">
+                <div class="hero-image">
+
+                    <img src="assets/profile.png"
+                        alt="Portrait of Lusani"
+                        id="profileImage">
+
+                    <div class="image-placeholder" id="imagePlaceholder" hidden>
+                        <span>LD.</span>
+                        <p>Developer. Creator. Innovator.</p>
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-    </section>
-   
-    <section class="tech-section" id="skills">
 
-        <div class="tech-heading">
-            <h2>Technological Foundation</h2>
-            <p>The modern tools I use to bring products to life.</p>
-        </div>
+        </section>
 
-        <div class="marquee">
-            <div class="marquee-track" id="row-one"></div>
-        </div>
+        <!-- TECHNOLOGICAL FOUNDATION -->
+        <section class="tech-section" id="skills">
 
-        <div class="marquee reverse">
-            <div class="marquee-track" id="row-two"></div>
-        </div>
+            <div class="section-heading">
 
-    </section>
+                <span class="section-label">
+                    MY TECH STACK
+                </span>
 
-        <h1>beyond coding</h1>
+                <h2>Technological Foundation</h2>
 
+                <p>
+                    The modern tools I use to bring products to life.
+                </p>
+
+            </div>
+
+            <div class="marquee">
+
+                <div class="marquee-track" id="row-one"></div>
+
+            </div>
+
+            <div class="marquee reverse">
+
+                <div class="marquee-track" id="row-two"></div>
+
+            </div>
+
+            <button class="motion-toggle"
+                id="motionToggle"
+                type="button"
+                aria-pressed="false">
+
+                Pause animation
+
+            </button>
+
+        </section>
+
+        <!-- SERVICES SECTION -->
         <section class="services-section" id="services">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    WHAT I DO
+                </span>
+
+                <h2>Beyond <span class="gradient-text">Coding.</span></h2>
+
+                <p>
+                    Turning ideas into functional, modern
+                    and meaningful digital experiences.
+                </p>
+
+            </div>
 
             <div class="services-container">
 
-                <!-- Service 1: Fullstack Development -->
+
+                <!-- FULLSTACK DEVELOPMENT -->
+
                 <article class="service-card service-fullstack">
 
                     <div class="service-icon icon-blue">
-                        <svg viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round"
-                             aria-hidden="true">
-                            <polyline points="8 17 3 12 8 7"></polyline>
-                            <polyline points="16 7 21 12 16 17"></polyline>
-                            <line x1="14" y1="4" x2="10" y2="20"></line>
+
+                        <svg viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+
+                            <polyline points="8 17 3 12 8 7"/>
+                            <polyline points="16 7 21 12 16 17"/>
+                            <line x1="14" y1="4" x2="10" y2="20"/>
+
                         </svg>
+
                     </div>
 
                     <div class="service-content">
-                        <h2>Fullstack Web Development</h2>
+
+                        <h3>Fullstack Web Development</h3>
 
                         <p>
-                            Building comprehensive web solutions. I handle
-                            everything from database architecture to the
-                            pixel-perfect frontend interface using modern
+                            Building comprehensive web solutions,
+                            from database architecture to responsive
+                            frontend interfaces using modern
                             web technologies.
                         </p>
+
+                    </div>
+
+                    <div class="service-tags">
+
+                        <span>HTML</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+
                     </div>
 
                 </article>
 
-                <!-- Service 2: UI Implementation -->
+                <!-- UI IMPLEMENTATION -->
                 <article class="service-card service-ui">
 
                     <div class="service-icon icon-purple">
-                        <svg viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round"
-                             aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="8" rx="1"></rect>
-                            <rect x="3" y="15" width="8" height="6" rx="1"></rect>
-                            <rect x="15" y="15" width="6" height="6" rx="1"></rect>
+
+                        <svg viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+
+                            <rect x="3" y="3" width="18" height="8" rx="1"/>
+                            <rect x="3" y="15" width="8" height="6" rx="1"/>
+                            <rect x="15" y="15" width="6" height="6" rx="1"/>
+
                         </svg>
+
                     </div>
 
                     <div class="service-content">
-                        <h2>UI Implementation</h2>
+
+                        <h3>UI Implementation</h3>
 
                         <p>
-                            Translating design concepts into responsive,
-                            interactive websites with clean layouts,
-                            smooth navigation and modern CSS styling.
+                            Translating design concepts into
+                            responsive, interactive websites
+                            with clean layouts, smooth navigation
+                            and modern CSS styling.
                         </p>
+
+                    </div>
+
+                    <div class="service-tags">
+
+                        <span>CSS</span>
+                        <span>Responsive Design</span>
+                        <span>Bootstrap</span>
+
                     </div>
 
                 </article>
 
-                <!-- Service 3: Backend Engineering -->
+                <!-- BACKEND ENGINEERING -->
                 <article class="service-card service-backend">
 
                     <div class="service-icon icon-orange">
-                        <svg viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round"
-                             aria-hidden="true">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path>
-                            <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path>
+
+                        <svg viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+
+                            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+
+                            <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+
                         </svg>
+
                     </div>
 
                     <div class="service-content">
-                        <h2>Backend Engineering</h2>
+
+                        <h3>Backend Engineering</h3>
 
                         <p>
-                            Developing APIs, database structures,
-                            MySQL solutions and authentication systems
-                            to power reliable web applications.
+                            Developing APIs, database structures
+                            and authentication systems to power
+                            reliable and functional web applications.
                         </p>
+
+                    </div>
+
+                    <div class="service-tags">
+
+                        <span>MySQL</span>
+                        <span>Express.js</span>
+                        <span>REST APIs</span>
+
                     </div>
 
                 </article>
 
-                <!-- Service 4: Performance and SEO -->
+                <!-- PERFORMANCE AND SEO -->
                 <article class="service-card service-performance">
 
                     <div class="service-icon icon-green">
-                        <svg viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round"
-                             aria-hidden="true">
-                            <path d="M13 2 3 14h8l-1 8 11-13h-8l1-7z"></path>
+
+                        <svg viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+
+                            <path d="M13 2 3 14h8l-1 8 11-13h-8l1-7z"/>
+
                         </svg>
+
                     </div>
 
                     <div class="service-content">
-                        <h2>Performance &amp; SEO</h2>
+
+                        <h3>Performance &amp; SEO</h3>
 
                         <p>
-                            Improving website loading speed, mobile
-                            responsiveness, search engine visibility
-                            and overall user experience.
+                            Improving website loading speed,
+                            mobile responsiveness, basic search
+                            engine optimisation and overall
+                            user experience.
                         </p>
+
+                    </div>
+
+                    <div class="service-tags">
+
+                        <span>Performance</span>
+                        <span>SEO</span>
+                        <span>Accessibility</span>
+
                     </div>
 
                 </article>
@@ -205,14 +379,91 @@
             </div>
 
         </section>
-    
-        <footer>
-            <p>@2026 Lusani's Digital World</p>
-            <img src="#" link="#" alt="linkden">
-            <img src="#" link="#" alt="github">
-            <img src="#" link="#" alt="email">
-        </footer>
-        
-        <script src="JS/script.js" async defer></script>
-    </body>
+
+        <!-- TEMPORARY CONTACT SECTION -->
+        <section class="contact-section" id="contact">
+
+            <div class="contact-container">
+
+                <span class="section-label">
+                    LET'S CONNECT
+                </span>
+
+                <h2>
+                    Have a project <br>
+                    <span class="gradient-text">in mind?</span>
+                </h2>
+
+                <p>
+                    Let's work together and turn your ideas
+                    into something meaningful.
+                </p>
+
+                <a href="https://github.com/Lusani-Rams1"
+                    class="primary-btn"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Connect on GitHub
+                    <span>↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="footer-logo">
+                    Lusani<span> Digital.</span>
+                </a>
+
+                <p>
+                    Websites that work. Digital ideas that grow.
+                </p>
+
+            </div>
+
+            <div class="footer-socials">
+
+                <a href="https://github.com/Lusani-Rams1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub">
+
+                    <i class="devicon-github-original"
+                        aria-hidden="true"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; <span id="currentYear">2026</span>
+                Lusani Digital. All rights reserved.
+            </p>
+
+            <a href="#home">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+
 </html>
