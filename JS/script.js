@@ -368,4 +368,401 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* PROJECT INFORMATION */
+        const projects = {
+
+            campussync: {
+
+                title: "CampusSync",
+
+                category: "FULLSTACK APPLICATION",
+
+                description:
+                    "A smart student productivity and reminder management platform.",
+
+                overview:
+                    "CampusSync is designed to help students organise academic tasks, manage deadlines and receive automated reminders. The application includes student and administrator dashboards, authentication and database integration.",
+
+                features: [
+                    "Student registration and authentication",
+                    "JWT-based authentication",
+                    "Task creation and management",
+                    "Automated reminder scheduling",
+                    "Notification management",
+                    "Administrator dashboard",
+                    "Student account management",
+                    "Usage analytics and system monitoring"
+                ],
+
+                technologies: [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Node.js",
+                    "Express.js",
+                    "MySQL",
+                    "MariaDB",
+                    "JWT",
+                    "bcrypt",
+                    "Railway"
+                ],
+
+                github:
+                    "https://github.com/Lusani-Rams1/ReminderApp",
+
+                demo: ""
+
+            },
+
+            queuecare: {
+
+                title: "QueueCare",
+
+                category: "MANAGEMENT SYSTEM",
+
+                description:
+                    "A digital patient and clinic queue management system.",
+
+                overview:
+                    "QueueCare is designed to improve clinic operations by digitising patient registration, queue management and communication between receptionists and doctors.",
+
+                features: [
+                    "Patient registration",
+                    "Digital patient queue",
+                    "Receptionist dashboard",
+                    "Doctor dashboard",
+                    "Patient queue display",
+                    "Role-based access",
+                    "Administrative dashboard"
+                ],
+
+                technologies: [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Node.js",
+                    "Express.js",
+                    "MySQL"
+                ],
+
+                github: "",
+
+                demo: ""
+
+            },
+
+            flourandco: {
+
+                title: "Flour & Co.",
+
+                category: "BUSINESS WEBSITE",
+
+                description:
+                    "A modern digital storefront for a bakery specialising in bread and pastries.",
+
+                overview:
+                    "Flour & Co. is an ongoing website development project focused on presenting bakery products, communicating brand identity and providing customers with collection information.",
+
+                features: [
+                    "Responsive landing page",
+                    "Bakery product menu",
+                    "Brand story page",
+                    "Collection information",
+                    "Customer enquiry integration"
+                ],
+
+                technologies: [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Responsive Design"
+                ],
+
+                github: "",
+
+                demo: ""
+
+            },
+
+            claims: {
+
+                title: "Claims Management System",
+
+                category: "ACADEMIC WEB APPLICATION",
+
+                description:
+                    "An ASP.NET MVC application for managing lecturer claims.",
+
+                overview:
+                    "The Claims Management System was developed as an academic project to demonstrate how digital systems can simplify claim submission, administrative reviews and claim status management.",
+
+                features: [
+                    "Lecturer claim submission",
+                    "Coordinator dashboard",
+                    "Claim review interface",
+                    "Claim status management",
+                    "Invoice interface"
+                ],
+
+                technologies: [
+                    "C#",
+                    "ASP.NET",
+                    "MVC",
+                    "Razor",
+                    "HTML",
+                    "CSS"
+                ],
+
+                github: "",
+
+                demo: ""
+
+            }
+
+        };
+
+        /* PROJECT CATEGORY FILTERS */
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const projectCards =
+            document.querySelectorAll(".project-card");
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const selectedCategory =
+                    button.dataset.filter;
+
+                filterButtons.forEach(filter => {
+
+                    const isActive = filter === button;
+
+                    filter.classList.toggle(
+                        "active",
+                        isActive
+                    );
+
+                    filter.setAttribute(
+                        "aria-pressed",
+                        String(isActive)
+                    );
+
+                });
+
+                projectCards.forEach(card => {
+
+                    const categories =
+                        card.dataset.category.split(" ");
+
+                    const shouldShow =
+                        selectedCategory === "all" ||
+                        categories.includes(selectedCategory);
+
+                    card.hidden = !shouldShow;
+
+                });
+
+            });
+
+        });
+
+        /* PROJECT IMAGE FALLBACK */
+        const projectImages =
+            document.querySelectorAll(".project-image img");
+
+        projectImages.forEach(image => {
+
+            function showPlaceholder() {
+
+                image.hidden = true;
+
+            }
+
+            image.addEventListener(
+                "error",
+                showPlaceholder
+            );
+
+            if (
+                image.complete &&
+                image.naturalWidth === 0
+            ) {
+
+                showPlaceholder();
+
+            }
+
+        });
+
+        /* PROJECT DETAILS MODAL */
+        const modal =
+            document.getElementById("projectModal");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+        const detailsButtons =
+            document.querySelectorAll(".project-details");
+
+        if (!modal || !modalClose) return;
+
+        let previousFocus = null;
+
+        /* OPEN PROJECT */
+        function openProject(projectId) {
+
+            const project = projects[projectId];
+
+            if (!project) return;
+
+            previousFocus = document.activeElement;
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent = project.title;
+
+            document.getElementById(
+                "modalCategory"
+            ).textContent = project.category;
+
+            document.getElementById(
+                "modalDescription"
+            ).textContent = project.description;
+
+            document.getElementById(
+                "modalOverview"
+            ).textContent = project.overview;
+
+            /* PROJECT FEATURES */
+            const featuresContainer =
+                document.getElementById("modalFeatures");
+
+            featuresContainer.replaceChildren();
+
+            project.features.forEach(feature => {
+
+                const item = document.createElement("li");
+
+                item.textContent = feature;
+
+                featuresContainer.appendChild(item);
+
+            });
+
+            /* PROJECT TECHNOLOGIES */
+            const technologiesContainer =
+                document.getElementById("modalTechnologies");
+
+            technologiesContainer.replaceChildren();
+
+            project.technologies.forEach(technology => {
+
+                const tag = document.createElement("span");
+
+                tag.textContent = technology;
+
+                technologiesContainer.appendChild(tag);
+
+            });
+
+            /* GITHUB LINK */
+            const githubLink =
+                document.getElementById("modalGithub");
+
+            if (project.github) {
+
+                githubLink.href = project.github;
+                githubLink.hidden = false;
+
+            } else {
+
+                githubLink.removeAttribute("href");
+                githubLink.hidden = true;
+
+            }
+
+            /* LIVE DEMO LINK */
+            const demoLink =
+                document.getElementById("modalDemo");
+
+            if (project.demo) {
+
+                demoLink.href = project.demo;
+                demoLink.hidden = false;
+
+            } else {
+
+                demoLink.removeAttribute("href");
+                demoLink.hidden = true;
+
+            }
+
+            /* SHOW MODAL */
+            modal.showModal();
+
+            document.body.classList.add("modal-open");
+
+            modalClose.focus();
+
+        }
+
+        /* PROJECT DETAILS BUTTONS */
+        detailsButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                openProject(button.dataset.project);
+
+            });
+
+        });
+
+        /* CLOSE BUTTON */
+        modalClose.addEventListener("click", () => {
+
+            modal.close();
+
+        });
+
+        /* CLOSE WHEN CLICKING BACKDROP */
+        modal.addEventListener("click", event => {
+
+            const bounds = modal.getBoundingClientRect();
+
+            const clickedOutside =
+                event.clientX < bounds.left ||
+                event.clientX > bounds.right ||
+                event.clientY < bounds.top ||
+                event.clientY > bounds.bottom;
+
+            if (
+                event.target === modal &&
+                clickedOutside
+            ) {
+
+                modal.close();
+
+            }
+
+        });
+
+        /* RESTORE SCROLL AND FOCUS */
+        modal.addEventListener("close", () => {
+
+            document.body.classList.remove("modal-open");
+
+            if (previousFocus) {
+
+                previousFocus.focus();
+
+            }
+
+        });
+
+    });
+
 });
