@@ -766,3 +766,169 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* CERTIFICATE VIEWER */
+    const certificateModal =
+        document.getElementById("certificateModal");
+
+    const certificateModalImage =
+        document.getElementById("certificateModalImage");
+
+    const certificateModalTitle =
+        document.getElementById("certificateModalTitle");
+
+    const certificateModalClose =
+        document.getElementById("certificateModalClose");
+
+    const certificateDownload =
+        document.getElementById("certificateDownload");
+
+    const certificateCards =
+        document.querySelectorAll(".certificate-card");
+
+    if (
+        !certificateModal ||
+        !certificateModalImage ||
+        !certificateModalTitle ||
+        !certificateModalClose ||
+        !certificateDownload
+    ) return;
+
+    let previousFocus = null;
+
+    /* CHECK CERTIFICATE IMAGES */
+    certificateCards.forEach(card => {
+
+        const image =
+            card.querySelector(".certificate-image img");
+
+        const button =
+            card.querySelector(".certificate-view");
+
+        if (!image || !button) return;
+
+        function imageLoaded() {
+
+            image.hidden = false;
+
+            button.disabled = false;
+
+            button.textContent = "View Certificate ↗";
+
+        }
+
+        function imageMissing() {
+
+            image.hidden = true;
+
+            button.disabled = true;
+
+            button.textContent = "Preview Pending";
+
+        }
+
+        image.addEventListener("load", imageLoaded);
+
+        image.addEventListener("error", imageMissing);
+
+
+        if (image.complete) {
+
+            if (image.naturalWidth > 0) {
+
+                imageLoaded();
+
+            } else {
+
+                imageMissing();
+
+            }
+
+        }
+
+        /* OPEN CERTIFICATE */
+        button.addEventListener("click", () => {
+
+            if (button.disabled) return;
+
+            const certificatePath =
+                button.dataset.certificate;
+
+            const certificateTitle =
+                button.dataset.title;
+
+            if (!certificatePath) return;
+
+            previousFocus = document.activeElement;
+
+            certificateModalImage.src =
+                certificatePath;
+
+            certificateModalImage.alt =
+                certificateTitle + " certificate";
+
+            certificateModalTitle.textContent =
+                certificateTitle;
+
+            certificateDownload.href =
+                certificatePath;
+
+            certificateModal.showModal();
+
+            document.body.classList.add("modal-open");
+
+            certificateModalClose.focus();
+
+        });
+
+    });
+
+    /* CLOSE CERTIFICATE */
+    certificateModalClose.addEventListener("click", () => {
+
+        certificateModal.close();
+
+    });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+    certificateModal.addEventListener("click", event => {
+
+        const bounds =
+            certificateModal.getBoundingClientRect();
+
+        const clickedOutside =
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom;
+
+        if (
+            event.target === certificateModal &&
+            clickedOutside
+        ) {
+
+            certificateModal.close();
+
+        }
+
+    });
+
+
+    /* RESTORE PAGE SCROLL AND FOCUS */
+    certificateModal.addEventListener("close", () => {
+
+        document.body.classList.remove("modal-open");
+
+        if (previousFocus) {
+
+            previousFocus.focus();
+
+        }
+
+    });
+
+});
